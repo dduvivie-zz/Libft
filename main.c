@@ -14,5 +14,7 @@ int	main(void)
 	printf("%d\n", ft_isascii(0x80));
 	printf("%d", isprint(126));
 	printf("%d\n", ft_isprint(126));
+	printf("%d", strlen("12345"));
+	printf("%d\n", ft_strlen("12345"));
 	return (0);
 }
