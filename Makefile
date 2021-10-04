@@ -1,7 +1,8 @@
 CC 			= gcc
 CFLAGS 		= -Wall -Wextra -Werror
 TARGET		= libft.a
-SRCS		= main.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
+SRCS		= main.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+			ft_strlen.c
 OBJS 		= $(SRCS:.c=.o)
 
 all:		$(TARGET)
