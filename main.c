@@ -17,10 +17,10 @@
 
 int	main(void)
 {
-	char	str[] = "123456789\0";
+	char	str[10] = "abcde\0";
 
 	printf("%s\n", str);
-	bzero(str, sizeof(str));
+	ft_memmove(str+2, str, 3);
 	printf("%s\n", str);
 	return (0);
 }
