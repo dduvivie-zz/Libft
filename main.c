@@ -1,20 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 10:54:49 by dduvivie          #+#    #+#             */
+/*   Updated: 2021/10/18 10:54:52 by dduvivie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "libft.h"
 
 int	main(void)
 {
-	printf("%d", isalnum('f'));
-	printf("%d\n", ft_isalnum('f'));
-	printf("%d", isalpha('{'));
-	printf("%d\n", ft_isalpha('{'));
-	printf("%d", isdigit('9'));
-	printf("%d\n", ft_isdigit('9'));
-	printf("%d", isascii(0x80));
-	printf("%d\n", ft_isascii(0x80));
-	printf("%d", isprint(126));
-	printf("%d\n", ft_isprint(126));
-	printf("%d", strlen("12345"));
-	printf("%d\n", ft_strlen("12345"));
+	char	str[] = "123456789\0";
+
+	printf("%s\n", str);
+	bzero(str, sizeof(str));
+	printf("%s\n", str);
 	return (0);
 }

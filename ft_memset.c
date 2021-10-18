@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 10:55:12 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/18 10:55:15 by dduvivie         ###   ########.fr       */
+/*   Created: 2021/10/04 15:45:11 by dduvivie          #+#    #+#             */
+/*   Updated: 2021/10/18 12:16:17 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_strlen(const char *s);
-void	*ft_memset(void *b, int c, int len);
-void    ft_bzero(void *s, int n);
-#endif
+void	*ft_memset(void *b, int c, int len)
+{
+	unsigned char	*str;
+
+	str = (unsigned char *)b;
+	while (len != 0)
+	{
+		*str = c;
+		str++;
+		len--;
+	}
+	return (b);
+}
