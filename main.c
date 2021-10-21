@@ -18,13 +18,10 @@
 int	main(void)
 {
 	char	str1[10] = "abcdefg\0";
-	char	str2[10] = "abcdefg\0";
+	char	str2[10] = "_______\0";
 
-	printf("%s\n", str1);
-	ft_memcpy(str1, str1+2, 3);
-	printf("%s\n", str1);
-	printf("%s\n", str2);
-	ft_memmove(str2, str2+2, 3);
+	printf("%zu\n", ft_strlen(str1));
+	printf("%zu\n", ft_strlcpy(str2, str1, 3));
 	printf("%s\n", str2);
 	return (0);
 }
