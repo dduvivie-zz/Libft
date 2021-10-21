@@ -17,15 +17,14 @@
 
 int	main(void)
 {
-	char	str1[10] = "abcde\0";
-	char	str2[10] = "abcde\0";
-
+	char	str1[10] = "abcdefg\0";
+	char	str2[10] = "abcdefg\0";
 
 	printf("%s\n", str1);
-	ft_memcpy(str1+2, str1, 3);
+	ft_memcpy(str1, str1+2, 3);
 	printf("%s\n", str1);
 	printf("%s\n", str2);
-	ft_memmove(str2+2, str2, 3);
+	ft_memmove(str2, str2+2, 3);
 	printf("%s\n", str2);
 	return (0);
 }
