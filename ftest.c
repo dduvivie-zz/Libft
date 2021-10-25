@@ -1,29 +1,30 @@
 #include <stdio.h>
 #include <string.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*str;
+	int		diff;
+	char	*str1;
+	char	*str2;
 
-	str = (char *)s;
-	while (n && (unsigned char)*str != (unsigned char)c)
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	while (--n && (unsigned char)*str1 == (unsigned char)*str2)
 	{
-		str++;
-		n--;
+		str1++;
+		str2++;
 	}
-	if (!n)
+	if ((unsigned char)*str1 > (unsigned char)*str2)
+		return (1);
+	else if ((unsigned char)*str1 == (unsigned char)*str2)
 		return (0);
-	return ((void *)str);
+	else
+		return (-1);
 }
 
 int	main(void)
 {
-   const char str[] = "1234.56789";
-   const char ch = '.';
-   char *ret;
-
-   ret = ft_memchr(str, ch, 5);
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
+	printf("%d\n", memcmp("abcde", "abcds", 5));
+	printf("%d\n", ft_memcmp("abcde", "abcds", 5));
 	return (0);
 }
