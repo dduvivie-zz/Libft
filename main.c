@@ -11,17 +11,10 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
 #include "libft.h"
 
 int	main(void)
 {
-	char	str1[10] = "abcdefg\0";
-	char	str2[10] = "_______\0";
-
-	printf("%zu\n", ft_strlen(str1));
-	printf("%zu\n", ft_strlcpy(str2, str1, 3));
-	printf("%s\n", str2);
 	return (0);
 }
