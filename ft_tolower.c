@@ -15,6 +15,6 @@
 int	ft_tolower(int c)
 {
 	if (ft_isalpha(c) && (c > 64 && c < 91))
-		c -= 32;
+		c += 32;
 	return (c);
 }
