@@ -17,11 +17,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	len;
 
 	len = ft_strlen(src);
-	while (--dstsize && *src)
+	if (dstsize == 0)
+		return (len);
+	while (dstsize > 1 && *src)
 	{
 		*dst = *src;
 		dst++;
 		src++;
+		dstsize--;
 	}
 	*dst = '\0';
 	return (len);
