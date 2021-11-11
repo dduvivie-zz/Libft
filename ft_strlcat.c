@@ -11,19 +11,29 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static int	get_len(char *dst, const char *src, size_t dstsize)
+{
+	int	len;
+
+	if ((int)dstsize >= 0 && (int)dstsize <= (int)ft_strlen(dst))
+		len = ft_strlen(src) + (int)dstsize;
+	else
+		len = ft_strlen(src) + ft_strlen(dst);
+	return (len);
+}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	int	len;
 
-	len = ft_strlen(src) + ft_strlen(dst);
-	if (dstsize == 0)
+	len = get_len(dst, src, dstsize);
+	if (dstsize <= ft_strlen(dst) + 1)
 		return (len);
-	while (dstsize > 0 && *dst)
+	while (*dst)
 	{
-		dst++;
 		dstsize--;
+		dst++;
 	}
 	while (dstsize > 1 && *src)
 	{
