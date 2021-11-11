@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/*
+This function allocates (with malloc) and returns a substring from the string s.
+The substring begins at index ’start’ and has maximum size ’len’.
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
