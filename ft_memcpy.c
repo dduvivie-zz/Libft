@@ -12,13 +12,26 @@
 
 #include "libft.h"
 
+/*
+Copies n bytes from memory area 'src' to memory area 'dst'.
+If 'dst' and 'src' overlap, behavior is undefined.
+
+Return:	the original value of 'dst'.
+*/
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
+	int		i;
+	char	*dest;
+
+	if (!dst || !src || !n)
+		return (dst);
+	i = 0;
+	dest = (char *)dst;
 	while (n--)
 	{
-		*(char *)dst = *(char *)src;
+		dest[i] = *(char *)src;
 		src++;
-		dst++;
+		i++;
 	}
 	return (dst);
 }

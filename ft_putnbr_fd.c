@@ -11,10 +11,20 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &n, 4);
+	char	*num;
+	int		i;
+
+	num = ft_itoa(n);
+	i = 0;
+	while (num[i])
+	{
+		write(fd, &num[i], 1);
+		i++;
+	}
 }
 /*
 int	main(void)

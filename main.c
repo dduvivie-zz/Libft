@@ -16,12 +16,12 @@
 
 int	main(void)
 {
-	char dest[30]; memset(dest, 0, 30);
-	char * src = (char *)"AAAAAAAAA";
-	dest[0] = 'B';
+	char	src[] = "test basic du memcpy !";
+	char	buff1[22];
 
-	ft_strlcat(dest, src, 0);
-	printf("%s\n", dest);
-	printf("%d\n", strcmp(dest, "B"));
+	memcpy(buff1, src, 22);
+	ft_memcpy(buff2, src, 22);
+	if (!memcmp(buff1, buff2, 22))
+		printf("OK\n");
 	return (0);
 }
