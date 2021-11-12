@@ -6,43 +6,57 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:25:33 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/28 10:38:10 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/12 11:37:18 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
+This function get the minimum length we need to allocate memory. 
+*/
+static int	get_len(char const *s, unsigned int start, size_t len)
+{
+	int	m_len;
+
+	m_len = 0;
+	if (start >= ft_strlen(s))
+		return (0);
+	while (len-- && s[start])
+	{
+		m_len++;
+		start++;
+	}
+	return (m_len);
+}
+
+/*
 This function allocates (with malloc) and returns a substring from the string s.
 The substring begins at index ’start’ and has maximum size ’len’.
+
+Parameters: 1. The string from which to create the substring.
+			2. The start index of the substring in the string ’s’.
+			3. The maximum length of the substring.
+Return:		The substring. NULL if the allocation fails.
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	int		i;
+	int		m_len;
 
-	i = 0;
-	str = malloc(len * sizeof(char));
+	m_len = get_len(s, start, len);
+	str = malloc(m_len * sizeof(char));
 	if (!str)
 		return (0);
-	while (s[start] != '\0')
+	i = 0;
+	while (s[start] != '\0' && m_len)
 	{
 		str[i] = s[start];
 		i++;
 		start++;
+		m_len--;
 	}
 	str[i] = '\0';
 	return (str);
 }
-
-/*
-int	main(void)
-{
-	char	*s = "Hello";
-	char	*str = ft_substr(s, 1, 4);
-
-	printf("%s\n", str);
-	free(str);
-	return (0);
-}
-*/
