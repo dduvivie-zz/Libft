@@ -6,16 +6,20 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 10:46:37 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/26 14:00:31 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 17:19:34 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Converts the initial portion of the string pointed to by
+'str' to int representation.
+*/
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	minus;
+	long	num;
+	int		minus;
 
 	num = 0;
 	minus = 1;
@@ -33,5 +37,5 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	num *= minus;
-	return (num);
+	return ((int)num);
 }
