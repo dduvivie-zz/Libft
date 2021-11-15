@@ -6,11 +6,12 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 15:39:44 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/11 16:44:19 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:29:28 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 /*
 This function locates the first occurrence of the null-terminated string needle
 in the string haystack, where not more than len characters are searched.
