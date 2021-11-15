@@ -6,7 +6,7 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:25:33 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/12 11:37:18 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:19:40 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		i;
 	int		m_len;
 
+	if (!s)
+		return (0);
 	m_len = get_len(s, start, len);
-	str = malloc(m_len * sizeof(char));
+	str = malloc(m_len * sizeof(char) + 1);
 	if (!str)
 		return (0);
 	i = 0;

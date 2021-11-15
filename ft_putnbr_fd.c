@@ -6,35 +6,36 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:28:45 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/05 15:38:52 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:06:14 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
+/*
+Outputs the integer ’n’ to the given file descriptor.
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*num;
-	int		i;
+	char	c;
 
-	num = ft_itoa(n);
-	i = 0;
-	while (num[i])
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		write(fd, &num[i], 1);
-		i++;
+		write(fd, "-", 1);
+		n *= -1;
+		ft_putnbr_fd(n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		c = (n % 10) + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		c = (n % 10) + '0';
+		write(fd, &c, 1);
 	}
 }
-/*
-int	main(void)
-{
-	int		fd;
-
-	fd = open("text4.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IXUSR);
-	if (fd == -1)
-		exit(0);
-	ft_putnbr_fd(6, fd);
-	return (0);
-}
-*/

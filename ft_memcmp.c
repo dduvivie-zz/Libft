@@ -6,12 +6,20 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 15:09:32 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/25 15:37:14 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 17:54:15 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Compares byte string 's1' against byte string 's2'.
+Both strings are assumed to be 'n' bytes long.
+
+Return: 0 if the two string are identical.
+		Otherwise, the difference between the first two differing bytes (treated as
+     	unsigned char values)
+*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	char	*str1;
@@ -26,10 +34,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		str1++;
 		str2++;
 	}
-	if ((unsigned char)*str1 > (unsigned char)*str2)
-		return (1);
-	else if ((unsigned char)*str1 == (unsigned char)*str2)
-		return (0);
-	else
-		return (-1);
+	return ((unsigned char)*str1 - (unsigned char)*str2);
 }

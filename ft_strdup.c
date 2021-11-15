@@ -6,12 +6,16 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 09:42:20 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/28 09:42:22 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:14:38 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Allocates sufficient memory for a copy of the string 's1',
+does the copy, and returns a pointer to it.
+*/
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;

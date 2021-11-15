@@ -6,11 +6,12 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 10:39:20 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/12 11:42:02 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:16:39 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 /*
 This function allocates (with malloc) and returns a new string,
 which is the result of the concatenation of ’s1’ and ’s2’.
@@ -25,6 +26,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len;
 	int		i;
 
+	if (!s1 || !s2)
+		return (0);
 	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
 	i = 0;
 	str = malloc(len * sizeof(char));

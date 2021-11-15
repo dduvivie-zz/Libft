@@ -6,19 +6,22 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:07:15 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/04 15:02:49 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 17:43:41 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Get the length of string we will need to allocate memory later.
+*/
 static int	get_len(int n)
 {
 	int		count;
-	double	num;
+	long	num;
 
 	count = 0;
-	num = (double)n;
+	num = (long)n;
 	if (num < 0)
 	{
 		num *= -1;
@@ -33,6 +36,13 @@ static int	get_len(int n)
 	return (count);
 }
 
+/*
+Allocates (with malloc(3)) and returns a string representing the integer
+received as an argument. Negative numbers must be handled.
+
+Parameters: 1. The integer to convert.
+Return:		The string representing the integer. NULL if the allocation fails.
+*/
 char	*ft_itoa(int n)
 {
 	int				len;

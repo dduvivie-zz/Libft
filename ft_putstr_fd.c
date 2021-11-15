@@ -6,16 +6,21 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:41:46 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/05 15:17:17 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/15 18:06:47 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Outputs the string ’s’ to the given file descriptor.
+*/
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (!s)
+		exit(0);
 	i = 0;
 	while (s[i])
 	{
@@ -23,16 +28,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-
-/*
-int	main(void)
-{
-	int		fd;
-
-	fd = open("text2.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IXUSR);
-	if (fd == -1)
-		exit(0);
-	ft_putstr_fd("Hello!\n", fd);
-	return (0);
-}
-*/
