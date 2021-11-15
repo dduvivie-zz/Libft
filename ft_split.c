@@ -99,6 +99,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	char	**t;
 
+	if (!s) /////
+		return (0); /////
 	t = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!t)
 		return (0);
@@ -121,22 +123,3 @@ char	**ft_split(char const *s, char c)
 	t[i] = 0;
 	return (t);
 }
-
-/*
-int	main(void)
-{
-	char const	*s = "*Blue*Black*Pink*Yellow*Green*White*Red*";
-	char		c = '*';
-	char		**t = ft_split(s, c);
-	int			i;
-
-	if (!t)
-		exit(0);
-	while (t[i])
-	{
-		printf("%s\n", t[i]);
-		i++;
-	}
-	return (0);
-}
-*/
