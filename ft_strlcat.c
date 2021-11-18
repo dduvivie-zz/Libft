@@ -6,12 +6,15 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:39:30 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/25 10:06:14 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/18 13:53:27 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Get the length of string which will be returned in 'ft_strlcat'.
+*/
 static int	get_len(char *dst, const char *src, size_t dstsize)
 {
 	int	len;
@@ -23,6 +26,12 @@ static int	get_len(char *dst, const char *src, size_t dstsize)
 	return (len);
 }
 
+/*
+Appends string 'src' to the end of 'dst'.
+It will append at most 'dstsize' - 1 characters.
+It will then NUL-terminate, unless 'dstsize' is 0 or
+the original 'dst' string was longer than 'dstsize'.
+*/
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	int	len;
