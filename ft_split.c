@@ -6,19 +6,22 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 13:13:55 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/29 15:05:24 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/18 13:31:29 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Counts the total number of words in 's'.
+*/
 static int	count_words(char const *s, char c)
 {
-	int	count;
+	int	words;
 	int	i;
 	int	len;
 
-	count = 0;
+	words = 0;
 	i = 0;
 	len = 0;
 	while (s[i])
@@ -29,18 +32,37 @@ static int	count_words(char const *s, char c)
 		{
 			if (len)
 			{
-				count++;
+				words++;
 				len = 0;
 			}
 		}
 		i++;
 	}
 	if (len)
-		count++;
-	return (count);
+		words++;
+	return (words);
 }
 
-static char	*get_str(const char *s, char c)
+/*
+Free all memories allocated with malloc before.
+*/
+static void	split_free(char **t, int elem)
+{
+	int	i;
+
+	i = 0;
+	while (i < elem)
+	{
+		free(t[i]);
+		i++;
+	}
+	free(t);
+}
+
+/*
+Get one word in 's', and call split_free when an allocation error occured.
+*/
+static char	*get_str(const char *s, char c, char **t, int elem)
 {
 	int		i;
 	int		len;
@@ -55,7 +77,10 @@ static char	*get_str(const char *s, char c)
 	}
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
+	{
+		split_free(t, elem);
 		return (0);
+	}
 	i = 0;
 	while (i < len)
 	{
@@ -66,57 +91,47 @@ static char	*get_str(const char *s, char c)
 	return (str);
 }
 
-static void	split_free(char **t, int elem)
+/*
+Get the next delimiter or the end of string.
+*/
+static char	*get_next_delimiter(char const *s, char c)
 {
-	int	i;
-
-	i = 0;
-	while (i < elem)
-	{
-		free(t[i]);
-		i++;
-	}
-	free(t);
-}
-
-static char	*get_first_char(char const *s, char c, int flag)
-{
-	if (flag)
-	{
-		while (*s == c)
-			s++;
-	}
-	else
-	{
-		while (*s != c && *s)
-			s++;
-	}
+	while (*s != c && *s)
+		s++;
 	return ((char *)s);
 }
 
+/*
+Allocates (with malloc) and returns an array of strings obtained by
+splitting ’s’ using the character ’c’ as a delimiter.
+The array must be ended by a NULL pointer.
+
+Parameters: 1. The string to be split
+			2. The delimiter character
+Return:		The array of new strings resulting from the split.
+			NULL if the allocation fails.
+*/
 char	**ft_split(char const *s, char c)
 {
 	int		i;
 	char	**t;
 
-	if (!s) /////
-		return (0); /////
+	if (!s)
+		return (0);
 	t = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!t)
 		return (0);
 	i = 0;
 	while (*s)
 	{
-		s = get_first_char(s, c, 1);
+		while (*s == c)
+			s++;
 		if (*s)
 		{
-			t[i] = get_str(s, c);
+			t[i] = get_str(s, c, t, i);
 			if (!t[i])
-			{
-				split_free(t, i);
 				return (0);
-			}
-			s = get_first_char(s, c, 0);
+			s = get_next_delimiter(s, c);
 			i++;
 		}
 	}
