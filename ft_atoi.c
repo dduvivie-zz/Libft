@@ -6,7 +6,7 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 10:46:37 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/11/15 17:19:34 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:09:19 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ Converts the initial portion of the string pointed to by
 */
 int	ft_atoi(const char *str)
 {
-	long	num;
-	int		minus;
+	unsigned long long	num;
+	int					minus;
 
 	num = 0;
 	minus = 1;
@@ -34,6 +34,10 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		num = (num * 10) + (*str - 48);
+		if (num >= LONG_MAX && minus == 1)
+			return (-1);
+		if (num > LONG_MAX && minus == -1)
+			return (0);
 		str++;
 	}
 	num *= minus;
