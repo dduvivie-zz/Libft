@@ -6,14 +6,16 @@
 /*   By: dduvivie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:53:20 by dduvivie          #+#    #+#             */
-/*   Updated: 2021/10/21 15:21:05 by dduvivie         ###   ########.fr       */
+/*   Updated: 2021/11/18 13:36:13 by dduvivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-
+Copies 'len' bytes from string 'src' to string 'dst'.
+If 'reverse' is 1, it starts the copy from the last character
+to the first character.
 */
 static char	*str_cpy(char *dst, char *src, int reverse, size_t len)
 {
