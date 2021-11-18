@@ -15,11 +15,9 @@ $(NAME):
 	
 
 clean:
-	@echo "remove object files..."
 	@-rm -f *.o
 
 fclean: clean
-	@echo "remove library..."
 	@-rm -f *.a
 
 re: fclean all
