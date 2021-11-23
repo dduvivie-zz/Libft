@@ -19,10 +19,7 @@ Return: 1(True) or 0(False)
 */
 int	ft_isascii(int c)
 {
-	int	res;
-
-	res = 1;
 	if (c < 0 || c > 127)
 		return (0);
-	return (res);
+	return (1);
 }

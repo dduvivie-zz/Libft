@@ -13,7 +13,7 @@
 #include "libft.h"
 
 /*
-Check if the character passed as parameter can be fined in 'set'.
+Check if the character passed as parameter can be found in 'set'.
 Parameters: 1. The character to be checked.
 			2. The reference set of characters to trim.
 Return:		i if the character fined in 'set', 0 if not so.
@@ -85,7 +85,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	str = malloc((get_len(s1, set) + 1) * sizeof(char));
 	if (!str)
-		return (0);
+		return (NULL);
 	i = 0;
 	start_i = 0;
 	last_i = ft_strlen(s1) - 1;

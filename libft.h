@@ -14,7 +14,7 @@
 # define LIBFT_H
 # include <stddef.h>
 # include <stdlib.h>
-# include <fcntl.h>
+# include <limits.h>
 # include <unistd.h>
 
 int		ft_isalpha(int c);

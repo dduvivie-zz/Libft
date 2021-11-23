@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	str = malloc(len * sizeof(char));
 	if (!str)
-		return (0);
+		return (NULL);
 	while (*s1)
 	{
 		str[i] = *s1;

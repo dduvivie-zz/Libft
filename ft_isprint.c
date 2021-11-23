@@ -20,10 +20,7 @@ Return: 1(True) or 0(False)
 */
 int	ft_isprint(int c)
 {
-	int	res;
-
-	res = 1;
 	if (c < 32 || c > 126)
 		return (0);
-	return (res);
+	return (1);
 }

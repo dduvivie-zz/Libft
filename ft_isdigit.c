@@ -18,10 +18,7 @@ Return: 1(True) or 0(False)
 */
 int	ft_isdigit(int c)
 {
-	int	res;
-
-	res = 1;
 	if (c < 48 || c > 57)
 		return (0);
-	return (res);
+	return (1);
 }

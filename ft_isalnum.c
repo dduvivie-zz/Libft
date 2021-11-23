@@ -20,10 +20,7 @@ Return: 1(True) or 0(False)
 */
 int	ft_isalnum(int c)
 {
-	int	res;
-
-	res = 1;
 	if (ft_isalpha(c) || ft_isdigit(c))
-		return (res);
+		return (1);
 	return (0);
 }

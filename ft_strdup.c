@@ -19,12 +19,10 @@ does the copy, and returns a pointer to it.
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;
-	int		len;
 	int		i;
 
-	len = ft_strlen(s1) + 1;
 	i = 0;
-	s2 = malloc(len * sizeof(char));
+	s2 = malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!s2)
 	{
 		return (0);

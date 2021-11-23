@@ -14,52 +14,27 @@
 
 /*
 Copies 'len' bytes from string 'src' to string 'dst'.
-If 'reverse' is 1, it starts the copy from the last character
-to the first character.
-*/
-static char	*str_cpy(char *dst, char *src, int reverse, size_t len)
-{
-	while (len--)
-	{
-		*dst = *src;
-		if (reverse)
-		{
-			src--;
-			dst--;
-		}
-		else
-		{
-			src++;
-			dst++;
-		}
-	}
-	return (dst);
-}
-
-/*
-Copies 'len' bytes from string 'src' to string 'dst'.
 The two strings may overlap; the copy is always done in a non-destructive manner.
 */
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*src_i;
 	char	*dst_i;
-	int		reverse;
 
 	if (!dst && !src)
 		return (0);
 	if ((char *)dst < (char *)src)
-	{
-		src_i = (char *)src;
-		dst_i = (char *)dst;
-		reverse = 0;
-	}
+		ft_memcpy(dst, src, len);
 	else
 	{
 		src_i = (char *)src + ((int)len - 1);
 		dst_i = (char *)dst + ((int)len - 1);
-		reverse = 1;
+		while (len--)
+		{
+			*dst_i = *src_i;
+			src_i--;
+			dst_i--;
+		}
 	}
-	str_cpy(dst_i, src_i, reverse, len);
 	return (dst);
 }

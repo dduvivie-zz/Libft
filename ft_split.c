@@ -19,26 +19,26 @@ static int	count_words(char const *s, char c)
 {
 	int	words;
 	int	i;
-	int	len;
+	int	word_len;
 
 	words = 0;
 	i = 0;
-	len = 0;
+	word_len = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
-			len++;
+			word_len++;
 		else
 		{
-			if (len)
+			if (word_len)
 			{
 				words++;
-				len = 0;
+				word_len = 0;
 			}
 		}
 		i++;
 	}
-	if (len)
+	if (word_len)
 		words++;
 	return (words);
 }

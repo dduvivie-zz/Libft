@@ -20,23 +20,17 @@ to the terminator if c is specified as '\0'.
 */
 char	*ft_strrchr(const char *s, int c)
 {
-	int		found;
+	int		i;
 
-	found = 0;
-	while (*s)
+	i = ft_strlen(s) - 1;
+	if (c == '\0')
+		return (&s[i]);
+	while (i >= 0)
 	{
-		if (*s == (char)c)
-			found = 1;
-		s++;
+		if (s[i] == c)
+			return (&s[i]);
+		i--;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	else if (!found)
-		return (0);
-	else
-	{
-		while (*s != (char)c)
-			s--;
-		return ((char *)s);
-	}
+	if (i == -1)
+		return (NULL);
 }

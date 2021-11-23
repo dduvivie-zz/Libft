@@ -17,14 +17,10 @@ Outputs the string ’s’ to the given file descriptor.
 */
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
+	int	len;
 
 	if (!s)
-		exit(0);
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+		return ;
+	len = ft_strlen(s);
+	write(fd, s, sizeof(char) * len);
 }

@@ -24,14 +24,12 @@ Return:		The string created from the successive applications of ’f’.
 */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	len;
 	char			*str;
 	int				i;
 
 	if (!s || !f)
 		return (0);
-	len = ft_strlen(s);
-	str = malloc((len + 1) * sizeof(char));
+	str = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	i = 0;
