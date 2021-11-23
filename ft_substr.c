@@ -46,11 +46,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		m_len;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	m_len = get_len(s, start, len);
 	str = malloc(m_len * sizeof(char) + 1);
 	if (!str)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (s[start] != '\0' && m_len)
 	{
