@@ -28,10 +28,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int				i;
 
 	if (!s || !f)
-		return (0);
+		return (NULL);
 	str = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!str)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
