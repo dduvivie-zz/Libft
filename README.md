@@ -20,7 +20,7 @@
 Clone the repository and compile the library:
 
 ```sh
-git clone https://github.com/your-username/libft.git  
+git clone https://github.com/dduvivie-zz/Libft.git libft
 cd libft  
 make  
 ```
@@ -45,6 +45,18 @@ Compile with:
 ```sh
 gcc main.c -L. -lft -o program
 ```
+
+---
+
+## Makefile Commands
+
+| Command      | Description                                    |
+|-------------|----------------------------------------------|
+| `make`      | Compiles `libft.a`                          |
+| `make clean` | Removes object files (`.o`)                |
+| `make fclean` | Removes object files and `libft.a`        |
+| `make re`    | Recompiles everything                     |
+
 ---
 
 ## License
